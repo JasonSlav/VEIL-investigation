@@ -1,0 +1,184 @@
+{
+    "id": "ghost-employer",
+    "caseNum": "#2024-0612",
+    "title": { "en": "THE GHOST EMPLOYER", "id": "PEMBERI KERJA GHOSTING" },
+    "teaser": { 
+        "en": "A dream job at a Fortune 500. The offer letter was perfect. The company never heard of her.", 
+        "id": "Pekerjaan impian di perusahaan Fortune 500. Surat penawarannya sempurna. Tapi perusahaan tidak pernah mengenalnya." 
+    },
+    "description": { 
+        "en": "Suspected fraudulent job offer targeting fresh graduates. Impersonation of legitimate tech corporation. Estimated financial impact: Rp 12.000.000. Priority: MEDIUM.", 
+        "id": "Dugaan penipuan tawaran pekerjaan yang menargetkan lulusan baru. Penyamaran sebagai korporasi teknologi resmi. Perkiraan dampak finansial: Rp 12.000.000. Prioritas: SEDANG." 
+    },
+    "difficulty": "MEDIUM",
+    "category": { "en": "JOB SCAM", "id": "PENIPUAN LOWONGAN KERJA" },
+    "emoji": "💼",
+    "narrative": { 
+        "en": "Aisha Tan, a 23-year-old fresh graduate, received a WhatsApp message offering a remote Marketing Executive role at a well-known tech firm. After a 20-minute 'video interview' — interviewer's camera conveniently broken — she received a convincing offer letter and was asked to purchase Rp 12.000.000 worth of 'onboarding equipment' from a preferred vendor. Investigate the deception chain.", 
+        "id": "Aisha Tan, seorang lulusan baru berusia 23 tahun, menerima pesan WhatsApp yang menawarkan posisi Marketing Executive jarak jauh di firma teknologi ternama. Setelah 'wawancara video' 20 menit — dengan kamera pewawancara yang sengaja 'rusak' — dia menerima surat penawaran yang meyakinkan dan diminta membeli 'peralatan orientasi' senilai Rp 12.000.000 dari vendor pilihan. Investigasi rantai penipuan ini." 
+    },
+    "clues": [
+      { 
+        "id": "c1", "icon": "Mail", 
+        "title": { "en": "Offer Letter", "id": "Surat Penawaran" }, 
+        "preview": { "en": "Near-perfect replica — one domain character off", "id": "Replika hampir sempurna — hanya berbeda satu karakter domain" }, 
+        "fullContent": { 
+            "en": "The offer letter uses the company's exact logo, formatting, and real signatory name (Head of Talent). Email domain: techcorp-hr@hiring-techcorp.com (legitimate: hr@techcorp.com). Contains correct salary benchmarks and real benefits. Signed PDF with a copied digital signature.", 
+            "id": "Surat penawaran menggunakan logo, format, dan nama penandatangan (Kepala Bakat) asli perusahaan. Domain email: techcorp-hr@hiring-techcorp.com (yang asli: hr@techcorp.com). Berisi patokan gaji yang akurat dan tunjangan nyata. PDF yang ditandatangani dengan tanda tangan digital hasil salinan." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "DOCUMENTATION", "id": "DOKUMENTASI" }, 
+        "timestamp": "08:55:14", "nodeId": "n3", "isInitial": false, "unlocks": ["c3"] 
+      },
+      { 
+        "id": "c2", "icon": "Globe", 
+        "title": { "en": "Interview Recording", "id": "Rekaman Wawancara" }, 
+        "preview": { "en": "Low-res video call, interviewer's camera 'broken' throughout", "id": "Panggilan video resolusi rendah, kamera pewawancara 'mati' sepanjang sesi" }, 
+        "fullContent": { 
+            "en": "Interview conducted via WhatsApp video call. Interviewer kept camera off citing 'technical issues.' Questions were generic and non-technical. Call lasted 18 minutes. Aisha was offered the position on the same call with no assessment, no panel, no follow-up documentation before the offer.", 
+            "id": "Wawancara dilakukan melalui panggilan video WhatsApp. Pewawancara mematikan kamera dengan alasan 'masalah teknis.' Pertanyaan bersifat umum dan tidak teknis. Panggilan berlangsung 18 menit. Aisha langsung ditawarkan posisi tersebut di panggilan yang sama tanpa asesmen, tanpa panel, tanpa dokumentasi lanjutan sebelum penawaran." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "PROCESS", "id": "PROSES" }, 
+        "timestamp": "09:12:38", "nodeId": "n1", "isInitial": true, "unlocks": ["c1"] 
+      },
+      { 
+        "id": "c3", "icon": "CreditCard", 
+        "title": { "en": "Equipment Invoice", "id": "Faktur Peralatan" }, 
+        "preview": { "en": "Rp 12.000.000 demand — framed as refundable from first salary", "id": "Permintaan Rp 12.000.000 — disebut akan diganti dari gaji pertama" }, 
+        "fullContent": { 
+            "en": "Invoice from 'TechSetup Sdn Bhd' for Rp 12.000.000 covering laptop, headset, and software. Vendor website was 2 weeks old. Amount to be 'deducted from first salary as standard company policy.' Payment via direct bank transfer to personal account. No receipts or tracking offered.", 
+            "id": "Faktur dari 'TechSetup Sdn Bhd' sebesar Rp 12.000.000 mencakup laptop, headset, dan perangkat lunak. Situs web vendor baru berusia 2 minggu. Jumlah tersebut akan 'dipotong dari gaji pertama sebagai kebijakan standar perusahaan.' Pembayaran melalui transfer bank langsung ke rekening pribadi. Tidak ada tanda terima atau pelacakan yang ditawarkan." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "FINANCIAL", "id": "FINANSIAL" }, 
+        "timestamp": "09:44:02", "nodeId": "n4", "isInitial": false 
+      },
+      { 
+        "id": "c4", "icon": "Search", 
+        "title": { "en": "Company Verification", "id": "Verifikasi Perusahaan" }, 
+        "preview": { "en": "Real company HR confirmed: no such role, no openings", "id": "HR perusahaan asli mengonfirmasi: tidak ada peran tersebut, tidak ada lowongan" }, 
+        "fullContent": { 
+            "en": "Verification call to the real company's publicly listed HR line: No open Marketing Executive positions. No employee named 'James Lim' in their talent team. Recruitment exclusively through LinkedIn and one named third-party firm. They confirmed receiving multiple reports of this impersonation in Q1 2024.", 
+            "id": "Panggilan verifikasi ke saluran HR resmi perusahaan yang terdaftar publik: Tidak ada posisi Marketing Executive yang dibuka. Tidak ada karyawan bernama 'James Lim' di tim bakat mereka. Rekrutmen eksklusif melalui LinkedIn dan satu firma pihak ketiga resmi. Mereka mengonfirmasi telah menerima banyak laporan tentang penyamaran ini pada Kuartal 1 2024." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "VERIFICATION", "id": "VERIFIKASI" }, 
+        "timestamp": "10:21:55", "nodeId": "n5", "isInitial": true, "unlocks": ["c1"] 
+      },
+      { 
+        "id": "c7", "icon": "FileText", 
+        "title": { "en": "Office Lease Agreement", "id": "Perjanjian Sewa Kantor" }, 
+        "preview": { "en": "Document for 'TechCorp Innovation Hub' in Cyberjaya", "id": "Dokumen untuk 'TechCorp Innovation Hub' di Cyberjaya" }, 
+        "fullContent": { 
+            "en": "A scan of a lease agreement for an office space in Cyberjaya. The tenant is listed as 'TechCorp Solutions.' However, a closer look at the dates shows the lease expired in 2021 and has no relation to the current recruitment activities. Factual but irrelevant to Aisha's case.", 
+            "id": "Pindaian perjanjian sewa ruang kantor di Cyberjaya. Penyewa terdaftar sebagai 'TechCorp Solutions.' Namun, pemeriksaan lebih teliti pada tanggal menunjukkan sewa telah berakhir pada tahun 2021 dan tidak memiliki hubungan dengan aktivitas rekrutmen saat ini. Faktual tetapi tidak relevan dengan kasus Aisha." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "DOCUMENTATION", "id": "DOKUMENTASI" }, 
+        "timestamp": "11:05:00", "nodeId": "n5", "isInitial": true 
+      },
+      { 
+        "id": "c8", "icon": "User", 
+        "title": { "en": "Employee Handbook", "id": "Buku Panduan Karyawan" }, 
+        "preview": { "en": "Generic HR guidelines for new hires", "id": "Panduan HR umum untuk rekrutan baru" }, 
+        "fullContent": { 
+            "en": "A 40-page PDF containing standard code of conduct, dress code, and holiday policies. It's a template used by many tech firms. It contains no branding or specific information that links it to the fraudulent offer received by Aisha.", 
+            "id": "PDF 40 halaman berisi kode etik standar, aturan berpakaian, dan kebijakan cuti. Ini adalah templat yang digunakan oleh banyak firma teknologi. Tidak berisi branding atau informasi spesifik yang menghubungkannya dengan tawaran penipuan yang diterima Aisha." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "GENERAL", "id": "UMUM" }, 
+        "timestamp": "11:20:00", "nodeId": "n2", "isInitial": true 
+      }
+    ],
+    "nodes": [
+      { "id": "n1", "label": { "en": "Fake HR", "id": "HR Palsu" }, "x": 50, "y": 30, "isActive": false, "color": "#cc0000" },
+      { "id": "n2", "label": { "en": "Aisha", "id": "Aisha" }, "x": 18, "y": 68, "isActive": false, "color": "#ff9f43" },
+      { "id": "n3", "label": { "en": "Offer Letter", "id": "Surat Penawaran" }, "x": 82, "y": 55, "isActive": false, "color": "#ff9f43" },
+      { "id": "n4", "label": { "en": "Fake Vendor", "id": "Vendor Palsu" }, "x": 75, "y": 82, "isActive": false, "color": "#ff4040" },
+      { "id": "n5", "label": { "en": "Real Company", "id": "Perusahaan Asli" }, "x": 18, "y": 42, "isActive": false, "color": "#4ade80" },
+      { "id": "n7", "label": { "en": "VOIP Provider", "id": "Penyedia VOIP" }, "x": 50, "y": 10, "isActive": false, "color": "#ff9f43" },
+      { "id": "n8", "label": { "en": "Syndicate Hub", "id": "Pusat Sindikat" }, "x": 90, "y": 15, "isActive": false, "color": "#ff9f43" },
+      { "id": "n9", "label": { "en": "Money Mule", "id": "Rekening Penampung" }, "x": 10, "y": 15, "isActive": false, "color": "#ff4040" }
+    ],
+    "edges": [],
+    "validEdges": [
+      ["c2", "c1"],
+      ["c1", "c3"],
+      ["c4", "c1"],
+      ["c2", "c4"]
+    ],
+    "failureClues": [
+      { 
+        "text": { 
+          "en": "Forensic analysis: Phone registered via VOIP service. Account creation IP traced to a commercial VPN exit node in Romania.", 
+          "id": "Analisis forensik: Telepon terdaftar melalui layanan VOIP. IP pembuatan akun terlacak ke titik keluar VPN komersial di Rumania." 
+        }, 
+        "relatedClueId": "c2", 
+        "targetNodeId": "n7" 
+      },
+      { 
+        "text": { 
+          "en": "Pattern matches a known fraud syndicate targeting Southeast Asian graduates. At least 12 other victims identified this month.", 
+          "id": "Pola cocok dengan sindikat penipuan yang diketahui menargetkan lulusan baru Asia Tenggara. Setidaknya ada 12 korban lain yang teridentifikasi bulan ini." 
+        }, 
+        "relatedClueId": "c2", 
+        "targetNodeId": "n8" 
+      },
+      { 
+        "text": { 
+          "en": "Bank account used for the equipment fee has been linked to three other reported recruitment scams in the Cyberjaya area.", 
+          "id": "Rekening bank yang digunakan untuk biaya peralatan telah terhubung dengan tiga laporan penipuan rekrutmen lainnya di area Cyberjaya." 
+        }, 
+        "relatedClueId": "c3", 
+        "targetNodeId": "n9" 
+      }
+    ],
+    "correctAnswer": { "scamType": "Job / Recruitment Scam", "threatLevel": "Medium" },
+    "educationalExplanation": { 
+        "en": "A recruitment impersonation scam: fraudsters clone the identity of a reputable company to lend legitimacy to a fake job offer. The upfront equipment fee — framed as refundable — is the primary extraction mechanism. The deliberately low-friction 'interview' filters for victims who won't verify independently.", 
+        "id": "Penipuan impersonasi rekrutmen: penipu mengkloning identitas perusahaan ternama untuk memberikan legitimasi pada tawaran kerja palsu. Biaya peralatan di muka — yang disebut akan diganti — adalah mekanisme pemerasan utama. 'Wawancara' yang sengaja dibuat minim hambatan berfungsi untuk menyaring korban yang tidak melakukan verifikasi mandiri." 
+      },
+    "correctScamType": "Job / Recruitment Scam",
+    "correctThreatLevel": "Medium",
+    "educationReport": {
+      "scamMethod": { 
+        "en": "A recruitment impersonation scam: fraudsters clone the identity of a reputable company to lend legitimacy to a fake job offer. The upfront equipment fee — framed as refundable — is the primary extraction mechanism. The deliberately low-friction 'interview' filters for victims who won't verify independently.", 
+        "id": "Penipuan impersonasi rekrutmen: penipu mengkloning identitas perusahaan ternama untuk memberikan legitimasi pada tawaran kerja palsu. Biaya peralatan di muka — yang disebut akan diganti — adalah mekanisme pemerasan utama. 'Wawancara' yang sengaja dibuat minim hambatan berfungsi untuk menyaring korban yang tidak melakukan verifikasi mandiri." 
+      },
+      "redFlags": [
+        { "en": "Unsolicited job offer via WhatsApp — legitimate companies use official platforms", "id": "Tawaran pekerjaan yang tidak diminta melalui WhatsApp — perusahaan resmi menggunakan platform formal" },
+        { "en": "Interviewer's camera broken for the entire call — prevents identity verification", "id": "Kamera pewawancara mati sepanjang panggilan — mencegah verifikasi identitas" },
+        { "en": "Job offer extended on the same call with no assessment or panel review", "id": "Tawaran kerja diberikan di panggilan yang sama tanpa asesmen atau tinjauan panel" },
+        { "en": "Upfront payment demanded for equipment before the first working day", "id": "Permintaan pembayaran di muka untuk peralatan sebelum hari pertama bekerja" },
+        { "en": "Payment routed to a personal account, not a company payables account", "id": "Pembayaran dialirkan ke rekening pribadi, bukan rekening pembayaran resmi perusahaan" },
+        { "en": "Email domain with extra hyphens subtly different from the real company domain", "id": "Domain email dengan tanda hubung tambahan yang sangat mirip dengan domain asli perusahaan" }
+      ],
+      "preventionTips": [
+        { "en": "Verify all job openings directly on the company's official careers page", "id": "Verifikasi semua lowongan kerja langsung di halaman karier resmi perusahaan" },
+        { "en": "Call the company's publicly listed HR number — never the one in the message", "id": "Hubungi nomor HR perusahaan yang terdaftar publik — jangan gunakan nomor di pesan" },
+        { "en": "Legitimate employers never require candidates to pay for equipment upfront", "id": "Pemberi kerja resmi tidak pernah meminta kandidat membayar peralatan di muka" },
+        { "en": "Reverse-image-search any profile photo provided by an interviewer", "id": "Lakukan pencarian gambar terbalik pada foto profil yang disediakan oleh pewawancara" },
+        { "en": "Inspect email domains character-by-character against the official website", "id": "Periksa domain email karakter demi karakter terhadap situs web resmi" },
+        { "en": "Report suspected recruitment scams to MCMC at aduan.mcmc.gov.my", "id": "Laporkan dugaan penipuan rekrutmen ke MCMC di aduan.mcmc.gov.my" }
+      ]
+    },
+    "oracleHints": {
+      "1": { "en": "Consider the communication channels. Which platforms do legitimate companies of this scale use for official HR correspondence — and which do they never use?", "id": "Pertimbangkan saluran komunikasinya. Platform mana yang digunakan perusahaan besar untuk korespondensi HR resmi — dan mana yang tidak pernah mereka gunakan?" },
+      "2": { "en": "Examine the financial demand closely. In legitimate remote employment, who bears the cost of onboarding equipment — and through what channels?", "id": "Periksa permintaan finansialnya dengan teliti. Dalam pekerjaan jarak jauh yang sah, siapa yang menanggung biaya peralatan orientasi — dan melalui saluran apa?" },
+      "3": { "en": "The broken camera and same-day offer are deliberate friction-reducing tactics that prevent verification. What fraud category systematically eliminates all identity and legitimacy checkpoints?", "id": "Kamera yang rusak dan penawaran di hari yang sama adalah taktik sengaja untuk mengurangi hambatan yang mencegah verifikasi. Kategori penipuan apa yang secara sistematis menghilangkan semua titik pemeriksaan identitas dan legitimasi?" }
+    },
+    "wrongAnswerClue": { 
+        "id": "c5", "icon": "Activity", 
+        "title": { "en": "IP Trace Data", "id": "Data Pelacakan IP" }, 
+        "preview": { "en": "Messages from VPN cluster — 12 victims same month", "id": "Pesan dari klaster VPN — 12 korban di bulan yang sama" }, 
+        "fullContent": { 
+            "en": "Forensic analysis: Phone registered via VOIP service. Account creation IP traced to a commercial VPN exit node in Romania. Pattern matches a known fraud syndicate targeting Southeast Asian graduates. At least 12 other victims identified in the same calendar month.", 
+            "id": "Analisis forensik: Telepon terdaftar melalui layanan VOIP. IP pembuatan akun terlacak ke titik keluar VPN komersial di Rumania. Pola cocok dengan sindikat penipuan yang diketahui menargetkan lulusan baru Asia Tenggara. Setidaknya 12 korban lain teridentifikasi di bulan kalender yang sama." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "DIGITAL FORENSICS", "id": "FORENSIK DIGITAL" }, 
+        "timestamp": "10:58:31", "nodeId": "n6" 
+    },
+    "wrongAnswerNode": { "id": "n6", "label": { "en": "VPN / Syndicate", "id": "VPN / Sindikat" }, "x": 50, "y": 8, "isActive": false, "color": "#ff9f43" }
+}

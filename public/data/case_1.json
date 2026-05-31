@@ -1,0 +1,214 @@
+{
+    "id": "phantom-broker",
+    "caseNum": "#2024-0547",
+    "title": { "en": "THE PHANTOM BROKER", "id": "SANG MAKELAR PHANTOM" },
+    "teaser": { 
+        "en": "A stranger promises 40% monthly returns. Three victims. One vanishing act.", 
+        "id": "Seorang asing menjanjikan keuntungan bulanan 40%. Tiga korban. Satu aksi menghilang." 
+    },
+    "description": { 
+        "en": "Suspected fraudulent investment scheme targeting university students. Multiple personal accounts detected. Estimated financial impact: Rp 150.000.000. Priority: HIGH.", 
+        "id": "Dugaan skema investasi bodong yang menargetkan mahasiswa. Terdeteksi banyak rekening pribadi. Perkiraan dampak finansial: Rp 150.000.000. Prioritas: TINGGI." 
+    },
+    "difficulty": "HIGH",
+    "category": { "en": "INVESTMENT FRAUD", "id": "PENIPUAN INVESTASI" },
+    "emoji": "💰",
+    "narrative": { 
+        "en": "March 2024 — three university students transferred total Rp 150.000.000 to a self-described 'licensed crypto fund manager' named Daniel Wren. He operated through Telegram, displayed fabricated regulatory certificates, and promised guaranteed monthly returns of 38–42%. After the first payout cycle, his accounts went dark. Analyze the evidence to identify the scam type and threat level.", 
+        "id": "Maret 2024 — tiga mahasiswa mentransfer total Rp 150.000.000 kepada seseorang yang mengaku sebagai 'manajer dana kripto berlisensi' bernama Daniel Wren. Dia beroperasi melalui Telegram, menunjukkan sertifikat regulator palsu, dan menjanjikan keuntungan bulanan tetap sebesar 38–42%. Setelah siklus pembayaran pertama, akunnya menghilang. Analisis bukti untuk mengidentifikasi jenis penipuan dan tingkat ancaman." 
+    },
+    "clues": [
+      { 
+        "id": "c1", "icon": "MessageSquare", 
+        "title": { "en": "WhatsApp Conversation", "id": "Percakapan WhatsApp" }, 
+        "preview": { "en": "DM promising 40% monthly returns with urgency tactics", "id": "Pesan menjanjikan keuntungan 40% dengan taktik desakan" }, 
+        "fullContent": { 
+            "en": "Screenshot shows conversation where Daniel Wren promises '100% guaranteed returns of 38–42% per month.' Uses urgency: 'Only 5 slots left this cycle.' Profile created 3 months ago. No verifiable history. Uses professional-looking headshot likely AI-generated.", 
+            "id": "Tangkapan layar menunjukkan percakapan di mana Daniel Wren menjanjikan 'keuntungan terjamin 100% sebesar 38–42% per bulan.' Menggunakan desakan: 'Hanya tersisa 5 slot untuk siklus ini.' Profil dibuat 3 bulan lalu. Tidak ada riwayat yang bisa diverifikasi. Menggunakan foto profil profesional yang kemungkinan hasil kecerdasan buatan (AI)." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "COMMUNICATION", "id": "KOMUNIKASI" }, 
+        "timestamp": "09:14:22", "nodeId": "n2", "isInitial": true, "unlocks": ["c2", "c6"] 
+      },
+      { 
+        "id": "c2", "icon": "FileText", 
+        "title": { "en": "SC License Certificate", "id": "Sertifikat Lisensi SC" }, 
+        "preview": { "en": "Securities Commission license — suspicious metadata detected", "id": "Lisensi Komisi Sekuritas — metadata mencurigakan terdeteksi" }, 
+        "fullContent": { 
+            "en": "PDF certificate claiming SEC registration #MY2023-CF-0047. Metadata reveals: Created in Canva on Feb 28, 2024. Font inconsistencies in official seal area. SC public registry shows no record of this license number. Certificate uses a 2022 template — SC updated design in Q1 2023.", 
+            "id": "Sertifikat PDF yang mengklaim registrasi SEC #MY2023-CF-0047. Metadata mengungkapkan: Dibuat di Canva pada 28 Feb 2024. Inkonsistensi font pada area stempel resmi. Registri publik SC menunjukkan tidak ada catatan nomor lisensi ini. Sertifikat menggunakan templat 2022 — SC telah memperbarui desain pada kuartal pertama 2023." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "DOCUMENTATION", "id": "DOKUMENTASI" }, 
+        "timestamp": "09:31:05", "nodeId": "n3", "isInitial": false, "unlocks": ["c4"] 
+      },
+      { 
+        "id": "c3", "icon": "CreditCard", 
+        "title": { "en": "Bank Transfer Screenshot", "id": "Tangkapan Layar Transfer Bank" }, 
+        "preview": { "en": "Three transfers totaling Rp 150.000.000 to personal accounts", "id": "Tiga transfer total Rp 150.000.000 ke rekening pribadi" }, 
+        "fullContent": { 
+            "en": "Bank records: Transfer 1 — Rp 50.000.000 to Maybank (Daniel Wren). Transfer 2 — Rp 60.000.000 to CIMB (Priya Suresh). Transfer 3 — Rp 40.000.000 to Touch 'n Go (unverified). All sent to non-business accounts. No investment firm account exists.", 
+            "id": "Catatan bank: Transfer 1 — Rp 50.000.000 ke Maybank (Daniel Wren). Transfer 2 — Rp 60.000.000 ke CIMB (Priya Suresh). Transfer 3 — Rp 40.000.000 ke Touch 'n Go (tidak terverifikasi). Semua dikirim ke rekening perorangan, bukan rekening bisnis. Tidak ada akun firma investasi yang terdaftar." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "FINANCIAL", "id": "FINANSIAL" }, 
+        "timestamp": "10:02:47", "nodeId": "n5", "isInitial": true, "unlocks": ["c2"] 
+      },
+      { 
+        "id": "c4", "icon": "Globe", 
+        "title": { "en": "Transaction History", "id": "Riwayat Transaksi" }, 
+        "preview": { "en": "wrenCapital.my — 6 weeks old, 70% content plagiarized", "id": "wrenCapital.my — berusia 6 minggu, 70% konten hasil plagiat" }, 
+        "fullContent": { 
+            "en": "Domain registered Feb 14, 2024 (6 weeks before contact). WHOIS privacy-shielded. Content: 70% copied verbatim from a legitimate UK investment firm. SSL: free Let's Encrypt certificate. No physical address. Phone number links to prepaid SIM under a different name.", 
+            "id": "Domain didaftarkan pada 14 Feb 2024 (6 minggu sebelum kontak). Data WHOIS disembunyikan. Konten: 70% disalin kata demi kata dari firma investasi resmi di Inggris. SSL: sertifikat gratis dari Let's Encrypt. Tidak ada alamat fisik. Nomor telepon terhubung ke SIM prabayar atas nama orang lain." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "DIGITAL TRAIL", "id": "JEJAK DIGITAL" }, 
+        "timestamp": "10:18:33", "nodeId": "n6", "isInitial": false 
+      },
+      { 
+        "id": "c5", "icon": "User", 
+        "title": { "en": "Email Thread", "id": "Utas Email" }, 
+        "preview": { "en": "Victim testimonies — common pattern of social proof & urgency", "id": "Kesaksian korban — pola umum bukti sosial & desakan" }, 
+        "fullContent": { 
+            "en": "All three victims report: (1) Initial contact via LinkedIn 'investment community' group. (2) Shown screenshots of 'other investors' profits — same format, suspiciously round numbers. (3) First small withdrawal paid out immediately to build trust. (4) Urged to reinvest profits. (5) Lost contact after second investment cycle.", 
+            "id": "Ketiga korban melaporkan: (1) Kontak awal melalui grup 'komunitas investasi' di LinkedIn. (2) Ditunjukkan tangkapan layar keuntungan 'investor lain' — format yang sama, angka yang bulat secara mencurigakan. (3) Penarikan kecil pertama dibayarkan segera untuk membangun kepercayaan. (4) Didesak untuk menginvestasikan kembali keuntungan. (5) Kehilangan kontak setelah siklus investasi kedua." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "VICTIM INTEL", "id": "INTEL KORBAN" }, 
+        "timestamp": "10:44:19", "nodeId": "n4", "isInitial": true, "unlocks": ["c6"] 
+      },
+      { 
+        "id": "c6", "icon": "Activity", 
+        "title": { "en": "Oracle Intelligence", "id": "Intelijen Oracle" }, 
+        "preview": { "en": "Behavioral analysis — classic Ponzi trust-building sequence identified", "id": "Analisis perilaku — urutan pembangunan kepercayaan klasik Ponzi" }, 
+        "fullContent": { 
+            "en": "Cross-referencing victim reports with known fraud patterns: The early payout (Rp 5.000.000) before larger investments is a documented Ponzi mechanism. The multi-personal-account routing is consistent with structuring to avoid reporting thresholds. The fake SC license reuses a template seen in 4 other Malaysian investment fraud cases in 2023.", 
+            "id": "Mencocokkan laporan korban dengan pola penipuan yang diketahui: Pembayaran awal (Rp 5.000.000) sebelum investasi yang lebih besar adalah mekanisme Ponzi yang terdokumentasi. Pengalihan dana ke banyak rekening pribadi konsisten dengan upaya menghindari ambang batas pelaporan. Lisensi SC palsu tersebut menggunakan templat yang terlihat di 4 kasus penipuan investasi lainnya di Malaysia pada tahun 2023." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "INTEL ANALYSIS", "id": "ANALISIS INTEL" }, 
+        "timestamp": "11:05:52", "nodeId": "n1", "isInitial": false, "unlocks": ["c4"] 
+      },
+      { 
+        "id": "c8", "icon": "User", 
+        "title": { "en": "Influencer Recommendation", "id": "Rekomendasi Influencer" }, 
+        "preview": { "en": "Social media post from 'CryptoKing' praising investment bots", "id": "Postingan media sosial dari 'CryptoKing' memuji bot investasi" }, 
+        "fullContent": { 
+            "en": "A high-engagement post from a generic 'CryptoKing' influencer with 500k followers. The post generally praises the rise of AI-driven crypto investment bots but does not mention Daniel Wren or wrenCapital. This is common noise in the crypto space.", 
+            "id": "Postingan dengan keterlibatan tinggi dari influencer generik 'CryptoKing' dengan 500 ribu pengikut. Postingan tersebut secara umum memuji kebangkitan bot investasi kripto berbasis AI tetapi tidak menyebutkan Daniel Wren atau wrenCapital. Ini adalah kebisingan (noise) umum di ruang kripto." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "SOCIAL MEDIA", "id": "MEDIA SOSIAL" }, 
+        "timestamp": "08:12:00", "nodeId": "n1", "isInitial": true 
+      },
+      { 
+        "id": "c9", "icon": "Globe", 
+        "title": { "en": "Bitcoin Market Report", "id": "Laporan Pasar Bitcoin" }, 
+        "preview": { "en": "General market analysis for Q1 2024", "id": "Analisis pasar umum untuk Kuartal 1 2024" }, 
+        "fullContent": { 
+            "en": "A standard PDF report detailing the bullish trend of Bitcoin in Q1 2024. Discusses global adoption and regulatory changes in Europe. No specific mention of Malaysian fraud patterns or the suspect firms.", 
+            "id": "Laporan PDF standar yang merinci tren bullish Bitcoin pada Kuartal 1 2024. Membahas adopsi global dan perubahan regulasi di Eropa. Tidak ada penyebutan spesifik tentang pola penipuan di Malaysia atau firma yang dicurigai." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "GENERAL INFO", "id": "INFO UMUM" }, 
+        "timestamp": "07:45:10", "nodeId": "n6", "isInitial": true 
+      }
+    ],
+    "nodes": [
+      { "id": "n1", "label": { "en": "Daniel Wren", "id": "Daniel Wren" }, "x": 50, "y": 30, "isActive": false, "color": "#cc0000" },
+      { "id": "n2", "label": { "en": "Telegram", "id": "Telegram" }, "x": 18, "y": 60, "isActive": false, "color": "#ff9f43" },
+      { "id": "n3", "label": { "en": "Fake License", "id": "Lisensi Palsu" }, "x": 82, "y": 60, "isActive": false, "color": "#ff9f43" },
+      { "id": "n4", "label": { "en": "Victims ×3", "id": "3 Korban" }, "x": 50, "y": 76, "isActive": false, "color": "#ff4040" },
+      { "id": "n5", "label": { "en": "Rp 150M", "id": "Rp 150jt" }, "x": 16, "y": 38, "isActive": false, "color": "#ff4040" },
+      { "id": "n6", "label": { "en": "wrenCapital", "id": "wrenCapital" }, "x": 84, "y": 38, "isActive": false, "color": "#ff9f43" },
+      { "id": "n7", "label": { "en": "Anonymous SIM", "id": "SIM Anonim" }, "x": 10, "y": 15, "isActive": false, "color": "#ff4040" },
+      { "id": "n8", "label": { "en": "Mixing Service", "id": "Layanan Mixing" }, "x": 10, "y": 85, "isActive": false, "color": "#ff4040" },
+      { "id": "n9", "label": { "en": "Fake Evidence", "id": "Bukti Palsu" }, "x": 90, "y": 85, "isActive": false, "color": "#ff4040" }
+    ],
+    "edges": [],
+    "validEdges": [
+      ["c1", "c3"],
+      ["c1", "c5"],
+      ["c1", "c6"],
+      ["c1", "c2"],
+      ["c2", "c6"],
+      ["c3", "c6"],
+      ["c3", "c2"],
+      ["c4", "c6"],
+      ["c5", "c6"],
+      ["c3", "c4"]
+    ],
+    "failureClues": [
+      { 
+        "text": { 
+          "en": "Forensic analysis shows the perpetrator’s phone number was registered under a different identity and appeared in two other police reports last year. A serial fraud pattern.", 
+          "id": "Analisis forensik menunjukkan nomor telepon pelaku terdaftar atas identitas yang berbeda dan muncul di dua laporan polisi lainnya tahun lalu. Pola penipuan berantai." 
+        }, 
+        "relatedClueId": "c1", 
+        "targetNodeId": "n7" 
+      },
+      { 
+        "text": { 
+          "en": "Blockchain analysis (simulation) found that 70% of the victim’s funds were immediately transferred overseas through a mixing service.", 
+          "id": "Analisis blockchain (simulasi) menemukan bahwa 70% dana korban segera dikirim ke luar negeri melalui layanan pencampuran (mixing service)." 
+        }, 
+        "relatedClueId": "c3", 
+        "targetNodeId": "n8" 
+      },
+      { 
+        "text": { 
+          "en": "Interview with a key witness: 'He posted profit screenshots every day, but the numbers were always exactly the same at 9 PM.'", 
+          "id": "Wawancara dengan saksi kunci: 'Dia memposting tangkapan layar keuntungan setiap hari, tetapi angka-angkanya selalu sama persis setiap jam 9 malam.'" 
+        }, 
+        "relatedClueId": "c5", 
+        "targetNodeId": "n9" 
+      }
+    ],
+    "correctAnswer": { "scamType": "Ponzi / Investment Fraud", "threatLevel": "High" },
+    "educationalExplanation": { 
+        "en": "A Ponzi scheme exploits promises of high returns with little or no risk... (extended explanation)", 
+        "id": "Skema Ponzi mengeksploitasi janji keuntungan tinggi dengan risiko kecil atau tanpa risiko... (penjelasan lebih lanjut)" 
+    },
+    "correctScamType": "Ponzi / Investment Fraud",
+    "correctThreatLevel": "High",
+    "educationReport": {
+      "scamMethod": { 
+        "en": "A Ponzi scheme variant using digital legitimacy signals — a fabricated regulatory license, hastily built website, and manufactured social proof. Early investors received small payouts funded by new victim deposits, not actual returns, building false confidence before the operator disappeared.", 
+        "id": "Varian skema Ponzi yang menggunakan sinyal legitimasi digital — lisensi regulator buatan sendiri, situs web yang dibuat terburu-buru, dan bukti sosial buatan. Investor awal menerima pembayaran kecil yang didanai dari deposit korban baru, bukan dari keuntungan nyata, untuk membangun kepercayaan palsu sebelum operator menghilang." 
+      },
+      "redFlags": [
+        { "en": "Guaranteed returns above 10% per month — legitimate investments never guarantee returns", "id": "Keuntungan terjamin di atas 10% per bulan — investasi resmi tidak pernah menjamin hasil" },
+        { "en": "License certificate metadata showing recent Canva creation date", "id": "Metadata sertifikat lisensi menunjukkan tanggal pembuatan baru-baru ini di Canva" },
+        { "en": "Funds transferred to personal accounts, not regulated investment custodial accounts", "id": "Dana dikirim ke rekening pribadi, bukan rekening kustodian investasi yang teregulasi" },
+        { "en": "High-pressure urgency tactics ('only 5 slots left this cycle')", "id": "Taktik desakan tekanan tinggi ('hanya tersisa 5 slot untuk siklus ini')" },
+        { "en": "Early small payout used deliberately to build trust before requesting larger investment", "id": "Pembayaran kecil awal digunakan sengaja untuk membangun kepercayaan sebelum meminta investasi lebih besar" },
+        { "en": "Website registered mere weeks before victims were contacted", "id": "Situs web baru didaftarkan beberapa minggu sebelum korban dihubungi" }
+      ],
+      "preventionTips": [
+        { "en": "Verify investment licenses directly via SC Malaysia e-register at sc.com.my", "id": "Verifikasi lisensi investasi langsung melalui e-register SC Malaysia di sc.com.my" },
+        { "en": "Never transfer funds to personal bank accounts for investment purposes", "id": "Jangan pernah mentransfer dana ke rekening bank pribadi untuk tujuan investasi" },
+        { "en": "Search the operator's name + 'scam' across social media and complaint portals", "id": "Cari nama operator + 'scam' di media sosial dan portal keluhan" },
+        { "en": "Returns above 10% per month are a definitive red flag, not an opportunity", "id": "Hasil di atas 10% per bulan adalah tanda bahaya yang nyata, bukan peluang" },
+        { "en": "Consult Bank Negara's Financial Consumer Alert List before investing", "id": "Konsultasikan Daftar Waspada Konsumen Finansial Bank Negara sebelum berinvestasi" },
+        { "en": "Legitimate fund managers will never pressure you with time-limited slots", "id": "Manajer dana resmi tidak akan pernah mendesak Anda dengan slot yang terbatas waktu" }
+      ]
+    },
+    "oracleHints": {
+      "1": { "en": "Pay attention to where the money actually goes. In regulated investments, client funds flow through custodial channels, not personal accounts.", "id": "Perhatikan ke mana uang tersebut sebenarnya mengalir. Dalam investasi yang teratur, dana klien mengalir melalui saluran kustodian, bukan rekening pribadi." },
+      "2": { "en": "Check the certificate issuance date and the website registration date. What does this reveal about the perpetrator’s intent before contacting the victim?", "id": "Periksa tanggal penerbitan sertifikat dan tanggal pendaftaran situs web. Apa yang diungkapkan hal ini tentang niat pelaku sebelum menghubungi korban?" },
+      "3": { "en": "Small initial payouts are a trust-building trap. This pattern, combined with multi-account usage, and fake licenses, has a specific name in fraud taxonomy.", "id": "Pembayaran awal yang kecil adalah jebakan pembangun kepercayaan. Pola ini, dikombinasikan dengan penggunaan banyak rekening dan lisensi palsu, memiliki nama khusus dalam taksonomi penipuan." }
+    },
+    "wrongAnswerClue": { 
+        "id": "c7", "icon": "Phone", 
+        "title": { "en": "Phone Records", "id": "Catatan Telepon" }, 
+        "preview": { "en": "Prepaid SIM linked to two additional aliases in police reports", "id": "SIM prabayar terhubung ke dua alias tambahan dalam laporan polisi" }, 
+        "fullContent": { 
+            "en": "MCMC records reveal the number used by Daniel Wren is linked to a prepaid SIM registered under 'Ahmad Faizal.' The same SIM appears in two RMP police reports from 2023 under different aliases. Pattern is consistent with a serial fraud operation.", 
+            "id": "Catatan MCMC mengungkapkan nomor yang digunakan Daniel Wren terhubung ke SIM prabayar yang terdaftar atas nama 'Ahmad Faizal.' SIM yang sama muncul di dua laporan polisi RMP tahun 2023 dengan alias yang berbeda. Pola ini konsisten dengan operasi penipuan berantai." 
+        }, 
+        "status": "unread", "selected": false, 
+        "category": { "en": "IDENTITY", "id": "IDENTITAS" }, 
+        "timestamp": "11:34:08", "nodeId": "n7" 
+    }
+}

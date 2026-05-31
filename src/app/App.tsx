@@ -178,6 +178,7 @@ const UI_TEXT = {
     selectedLabel: "SELECTED",
     pctAnalyzed: "ANALYZED",
     caseLabel: "CASE",
+    alreadyEstablished: "This connection has already been established.",
     resetTitle: "SYSTEM RESET INITIATED",
     resetMsg: "Clear all investigation progress for this case? This operation is irreversible.",
     confirmBtn: "CONFIRM RESET",
@@ -230,6 +231,7 @@ const UI_TEXT = {
     selectedLabel: "TERPILIH",
     pctAnalyzed: "DIANALISIS",
     caseLabel: "KASUS",
+    alreadyEstablished: "Hubungan ini sudah terbentuk.",
     resetTitle: "INISIALISASI RESET SISTEM",
     resetMsg: "Hapus semua kemajuan investigasi untuk kasus ini? Operasi ini tidak dapat dibatalkan.",
     confirmBtn: "KONFIRMASI RESET",
@@ -366,7 +368,7 @@ function CaseSelectScreen({ cases, onSelect, lang, setLang }: { cases: CaseData[
     en: {
       subtitle: "Reveal hidden patterns. Solve digital deception.",
       status: "SYSTEM ONLINE — SECURE CONNECTION ESTABLISHED",
-      titleFiles: "ACTIVE INVESTIGATION FILES — SELECT TO OPEN",
+      titleFiles: "LATEST INCIDENT REPORTS — ANALYZE TO START",
       cluesCount: "EVIDENCE FILES",
       selected: "FILE SELECTED ›",
       toSelect: "CLICK TO SELECT",
@@ -376,7 +378,7 @@ function CaseSelectScreen({ cases, onSelect, lang, setLang }: { cases: CaseData[
     id: {
       subtitle: "Ungkap pola tersembunyi. Selesaikan penipuan digital.",
       status: "SISTEM ONLINE — KONEKSI AMAN TERBENTUK",
-      titleFiles: "BERKAS INVESTIGASI AKTIF — PILIH UNTUK MEMBUKA",
+      titleFiles: "LAPORAN INSIDEN TERBARU — ANALISIS UNTUK MEMULAI",
       cluesCount: "BERKAS BUKTI",
       selected: "BERKAS DIPILIH ›",
       toSelect: "KLIK UNTUK MEMILIH",
@@ -444,15 +446,14 @@ function CaseSelectScreen({ cases, onSelect, lang, setLang }: { cases: CaseData[
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <p className="text-[9px] font-mono text-[#444] tracking-widest mb-1">{c.caseNum} · {c.category[lang]}</p>
+                        <p className="text-[9px] font-mono text-[#444] tracking-widest mb-1">{c.caseNum} // INCIDENT REPORT</p>
                         <h2 className="text-white font-bold text-base tracking-wide" style={{ fontFamily: "'Space Grotesk',sans-serif" }}>{c.title[lang]}</h2>
                       </div>
                       <div className="flex flex-col items-end gap-2">
-                        <DiffBadge level={c.difficulty} lang={lang} />
                         <span className="text-2xl">{c.emoji}</span>
                       </div>
                     </div>
-                    <p className="text-[#555] text-xs leading-relaxed mb-4">{c.description[lang]}</p>
+                    <p className="text-[#555] text-xs leading-relaxed mb-4 italic">"{c.teaser[lang]}"</p>
                     <div className="flex items-center justify-between pt-3 border-t border-[rgba(255,255,255,0.05)]">
                       <span className="text-[9px] font-mono text-[#333]">{c.clues.length} {t.cluesCount}</span>
                       {isChosen
@@ -825,7 +826,7 @@ function OraclePanel({
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
-  }, [messages]);
+  }, [messages, lang]);
 
   if (isCorrect && report) return <EducationReport report={report} onNext={onNext} lang={lang} />;
 
@@ -857,7 +858,9 @@ function OraclePanel({
               <Shield size={10} className="text-white" />
             </div>
             <div className="flex-1 bg-[#0d0d0d] border border-[rgba(255,255,255,0.05)] p-2.5">
-              <p className={`text-xs leading-relaxed ${msgColors[m.type]}`}>{m.text[lang]}</p>
+              <p className={`text-xs leading-relaxed ${msgColors[m.type]}`}>
+                {typeof m.text === "string" ? m.text : m.text[lang]}
+              </p>
               <p className="text-[8px] font-mono text-[#333] mt-1.5">{m.time}</p>
             </div>
           </div>
@@ -929,8 +932,8 @@ function Dashboard({ caseData, onBack, lang, setLang }: {
     const saved = localStorage.getItem(`veil_msgs_${caseData.id}`);
     return saved ? JSON.parse(saved) : [
       { text: { 
-          en: "Investigation initiated. Multiple anomalies detected in the evidence pattern. Inspect each file and analyze relationships to identify the scam type.",
-          id: "Investigasi dimulai. Berbagai anomali terdeteksi pada pola bukti. Periksa setiap berkas dan analisis hubungannya untuk mengidentifikasi jenis penipuan."
+          en: "Investigation initiated. Use the Analyze Connection tool to map evidence and uncover the scam pattern. When you are confident, submit your final conclusion below. The graph is your assistant, not the final answer.",
+          id: "Investigasi dimulai. Gunakan alat Analisis Hubungan untuk memetakan bukti dan mengungkap pola penipuan. Saat Anda yakin, kirim kesimpulan akhir di bawah. Grafik adalah asisten Anda, bukan jawaban akhir."
         }, 
         time: now(), 
         type: "intel" 
@@ -942,12 +945,21 @@ function Dashboard({ caseData, onBack, lang, setLang }: {
     const saved = localStorage.getItem(`veil_hint_${caseData.id}`);
     return saved ? parseInt(saved) as HintTier : 1;
   });
-  const [scamType, setScamType] = useState(SCAM_TYPES[0]);
-  const [threatLevel, setThreatLevel] = useState(THREAT_LEVELS[0]);
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [scamType, setScamType] = useState(SCAM_TYPES[0].en);
+  const [threatLevel, setThreatLevel] = useState(THREAT_LEVELS[0].en);
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(() => {
+    const saved = localStorage.getItem(`veil_correct_${caseData.id}`);
+    return saved ? JSON.parse(saved) : null;
+  });
   const [inspecting, setInspecting] = useState<Clue | null>(null);
-  const [wrongAttempts, setWrongAttempts] = useState(0);
-  const [wrongAdded, setWrongAdded] = useState(false);
+  const [wrongAttempts, setWrongAttempts] = useState(() => {
+    const saved = localStorage.getItem(`veil_wrong_${caseData.id}`);
+    return saved ? parseInt(saved) : 0;
+  });
+  const [wrongAdded, setWrongAdded] = useState(() => {
+    const saved = localStorage.getItem(`veil_wadded_${caseData.id}`);
+    return saved ? JSON.parse(saved) : false;
+  });
   const [submitting, setSubmitting] = useState(false);
   const [submitState, setSubmitState] = useState<"idle" | "loading" | "success" | "fail">("idle");
   const [showResetConfirm, setShowResetConfirm] = useState(false);
@@ -973,13 +985,27 @@ function Dashboard({ caseData, onBack, lang, setLang }: {
     localStorage.setItem(`veil_log_${caseData.id}`, JSON.stringify(log));
     localStorage.setItem(`veil_msgs_${caseData.id}`, JSON.stringify(messages));
     localStorage.setItem(`veil_hint_${caseData.id}`, hintTier.toString());
-  }, [clues, nodes, edges, log, messages, hintTier, caseData.id]);
+    localStorage.setItem(`veil_wrong_${caseData.id}`, wrongAttempts.toString());
+    localStorage.setItem(`veil_wadded_${caseData.id}`, JSON.stringify(wrongAdded));
+    localStorage.setItem(`veil_correct_${caseData.id}`, JSON.stringify(isCorrect));
+  }, [clues, nodes, edges, log, messages, hintTier, wrongAttempts, wrongAdded, isCorrect, caseData.id]);
 
   const handleInspect = (id: string) => {
     const clue = clues.find((c) => c.id === id)!;
     setInspecting(clue);
     setClues((p) => p.map((c) => c.id === id ? { ...c, status: c.status === "unread" ? "read" : c.status, isNew: false } : c));
     pushLog(`Evidence file accessed: ${clue.title.en}`, `Berkas bukti diakses: ${clue.title.id}`, "intel");
+
+    // Red Herring Auto-Resolution
+    if (!clue.nodeId) {
+      setTimeout(() => {
+        pushMsg(
+          "Analysis indicates this file might be irrelevant noise. Focus on financial and communication patterns.",
+          "Analisis mendeteksi berkas ini mungkin hanya pengecoh (noise). Fokus pada pola finansial dan komunikasi.",
+          "intel"
+        );
+      }, 1000);
+    }
   };
 
   const handleToggle = (id: string) => {
@@ -1012,6 +1038,18 @@ function Dashboard({ caseData, onBack, lang, setLang }: {
     const nodeBId = clueB.nodeId;
 
     if (nodeAId && nodeBId) {
+      // Check if connection already exists
+      const edgeExists = edges.some(e => 
+        (e.from === nodeAId && e.to === nodeBId) || 
+        (e.from === nodeBId && e.to === nodeAId)
+      );
+
+      if (edgeExists) {
+        pushMsg(UI_TEXT.en.alreadyEstablished, UI_TEXT.id.alreadyEstablished, "warn");
+        setClues(prev => prev.map(c => ({ ...c, selected: false })));
+        return;
+      }
+
       const newEdge: GraphEdge = {
         from: nodeAId,
         to: nodeBId,
@@ -1035,44 +1073,24 @@ function Dashboard({ caseData, onBack, lang, setLang }: {
       pushLog(`Valid connection mapped: ${clueA.title.en} ↔ ${clueB.title.en}`, `Hubungan valid dipetakan: ${clueA.title.id} ↔ ${clueB.title.id}`, "discovery");
       pushMsg(`Analysis successful. ${clueA.title.en} and ${clueB.title.en} are connected.`, `Analisis berhasil. ${clueA.title.id} dan ${clueB.title.id} terhubung.`, "intel");
 
-      // UNLOCK MECHANIC: Check if this connection unlocks new clues
-      const toUnlock: string[] = [];
-      if (clueA.unlocks) toUnlock.push(...clueA.unlocks);
-      if (clueB.unlocks) toUnlock.push(...clueB.unlocks);
-
-      if (toUnlock.length > 0) {
-        setClues(prev => {
-          const currentIds = prev.map(c => c.id);
-          const newClues = caseData.clues.filter(c => toUnlock.includes(c.id) && !currentIds.includes(c.id));
-          if (newClues.length > 0) {
-            pushLog(`${newClues.length} new evidence file(s) decrypted.`, `${newClues.length} berkas bukti baru didekripsi.`, "discovery");
-            pushMsg("New intelligence has been unlocked. Check your evidence files.", "Intelijen baru telah terbuka. Periksa berkas bukti Anda.", "success");
-            return [...prev, ...newClues.map(c => ({ ...c, isNew: true }))];
-          }
-          return prev;
-        });
-      }
+      // UNLOCK MECHANIC: Unlock all remaining valid clues after any successful connection
+      setClues(prev => {
+        const currentIds = prev.map(c => c.id);
+        const newClues = caseData.clues.filter(c => !currentIds.includes(c.id) && !c.id.startsWith("fail-") && c.nodeId);
+        if (newClues.length > 0) {
+          pushLog(`${newClues.length} new evidence file(s) decrypted.`, `${newClues.length} berkas bukti baru didekripsi.`, "discovery");
+          pushMsg("New intelligence has been unlocked. Check your evidence files.", "Intelijen baru telah terbuka. Periksa berkas bukti Anda.", "success");
+          return [...prev, ...newClues.map(c => ({ ...c, isNew: true }))];
+        }
+        return prev;
+      });
     } else {
-      // Fallback logic
-      const inactiveNodes = nodes.filter(n => !n.isActive);
-      if (inactiveNodes.length >= 2) {
-        const fromNode = inactiveNodes[0];
-        const toNode = inactiveNodes[1];
-        const newEdge: GraphEdge = {
-          from: fromNode.id,
-          to: toNode.id,
-          type: "user",
-          label: { en: "linked", id: "terhubung" },
-        };
-        setEdges(prev => [...prev, newEdge]);
-        setNodes(prev =>
-          prev.map(n =>
-            n.id === fromNode.id || n.id === toNode.id ? { ...n, isActive: true } : n
-          )
-        );
-        pushLog(`Valid connection mapped: ${clueA.title.en} ↔ ${clueB.title.en}`, `Hubungan valid dipetakan: ${clueA.title.id} ↔ ${clueB.title.id}`, "discovery");
-        pushMsg(`Analysis successful. ${clueA.title.en} and ${clueB.title.en} are connected.`, `Analisis berhasil. ${clueA.title.id} dan ${clueB.title.id} terhubung.`, "intel");
-      }
+      pushMsg(
+        "Connection cannot be mapped visually. This evidence may be irrelevant noise.",
+        "Koneksi tidak dapat dipetakan secara visual. Bukti ini mungkin hanya pengecoh.",
+        "warn"
+      );
+      pushLog(`Irrelevant connection attempt: ${clueA.title.en} ↔ ${clueB.title.en}`, `Upaya analisis tidak relevan: ${clueA.title.id} ↔ ${clueB.title.id}`, "warning");
     }
 
     setClues(prev =>
@@ -1199,12 +1217,18 @@ function Dashboard({ caseData, onBack, lang, setLang }: {
   };
 
   const performReset = () => {
-    localStorage.removeItem(`veil_clues_${caseData.id}`);
-    localStorage.removeItem(`veil_nodes_${caseData.id}`);
-    localStorage.removeItem(`veil_edges_${caseData.id}`);
-    localStorage.removeItem(`veil_log_${caseData.id}`);
-    localStorage.removeItem(`veil_msgs_${caseData.id}`);
-    localStorage.removeItem(`veil_hint_${caseData.id}`);
+    const keys = [
+      `veil_clues_${caseData.id}`,
+      `veil_nodes_${caseData.id}`,
+      `veil_edges_${caseData.id}`,
+      `veil_log_${caseData.id}`,
+      `veil_msgs_${caseData.id}`,
+      `veil_hint_${caseData.id}`,
+      `veil_wrong_${caseData.id}`,
+      `veil_wadded_${caseData.id}`,
+      `veil_correct_${caseData.id}`
+    ];
+    keys.forEach(key => localStorage.removeItem(key));
     window.location.reload();
   };
 
@@ -1238,7 +1262,6 @@ function Dashboard({ caseData, onBack, lang, setLang }: {
           <span className="text-[9px] font-mono text-[#555] tracking-wider">{UI_TEXT[lang].caseLabel} {caseData.caseNum}: {caseData.title[lang]}</span>
         </div>
         <div className="flex items-center gap-3">
-          <DiffBadge level={caseData.difficulty} lang={lang} />
           <span className="text-[8px] font-mono text-[#333]">{analyzedCount}/{clues.length} {UI_TEXT[lang].analyzed}</span>
           <span className="text-[rgba(255,255,255,0.1)]">|</span>
           <button 
@@ -1331,7 +1354,9 @@ function Dashboard({ caseData, onBack, lang, setLang }: {
                   {log.slice(-15).map((e, i) => (
                     <div key={i} className="flex items-start gap-2">
                       <span className="text-[7px] font-mono text-[#333] flex-shrink-0 mt-0.5">{e.time}</span>
-                      <span className={`text-[9px] font-mono leading-snug ${logColors[e.type]}`}>{e.text[lang]}</span>
+                      <span className={`text-[9px] font-mono leading-snug ${logColors[e.type]}`}>
+                        {typeof e.text === "string" ? e.text : e.text[lang]}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -1395,17 +1420,15 @@ function Dashboard({ caseData, onBack, lang, setLang }: {
 
           <button
             onClick={handleSubmit}
-            disabled={scamType === SCAM_TYPES[0].en || threatLevel === THREAT_LEVELS[0].en || submitting || (analyzedCount / Math.max(clues.length, 1)) < 0.8}
+            disabled={scamType === SCAM_TYPES[0].en || threatLevel === THREAT_LEVELS[0].en || submitting}
             style={{ fontFamily: "'Space Grotesk',sans-serif" }}
             className={`flex-[1.5] flex-shrink-0 font-bold text-xs tracking-[0.1em] uppercase transition-all duration-300 flex items-center justify-center gap-2 ${
-              scamType !== SCAM_TYPES[0].en && threatLevel !== THREAT_LEVELS[0].en && (analyzedCount / Math.max(clues.length, 1)) >= 0.8
+              scamType !== SCAM_TYPES[0].en && threatLevel !== THREAT_LEVELS[0].en
                 ? submitBtnStyle[submitState]
-                : "bg-[#0d0d0d] text-[#222] cursor-not-allowed"
+                : "bg-[#0d0d0d] text-[#222] cursor-not-allowed border-l border-[rgba(255,255,255,0.06)]"
             }`}
           >
-            {(analyzedCount / Math.max(clues.length, 1)) < 0.8 && submitState === "idle" 
-              ? (lang === "en" ? "INSUFFICIENT EVIDENCE" : "BUKTI TIDAK CUKUP") 
-              : submitBtnLabel[submitState]}
+            {submitBtnLabel[submitState]}
           </button>
         </div>
       </div>
@@ -1481,21 +1504,42 @@ export default function App() {
 
   return (
     <div className="dark" style={{ fontFamily: "'Inter',sans-serif" }}>
-      {screen === "init" && (
-        <InitializationScreen onSelect={handleInit} />
-      )}
-      {screen === "case-select" && (
-        <CaseSelectScreen cases={cases} onSelect={(id) => { setActiveCaseId(id); setScreen("investigation"); }} lang={lang} setLang={setLang} />
-      )}
-      {screen === "investigation" && activeCase && (
-        <Dashboard 
-          key={activeCase.id}
-          caseData={activeCase} 
-          onBack={() => setScreen("case-select")} 
-          lang={lang} 
-          setLang={setLang} 
-        />
-      )}
+      {/* Mobile Blocker */}
+      <div className="lg:hidden fixed inset-0 z-[999] bg-[#080808] flex flex-col items-center justify-center p-6 text-center">
+        <div className="w-12 h-12 bg-[#cc0000] flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(204,0,0,0.4)]" style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}>
+          <Shield size={20} className="text-white" />
+        </div>
+        <p className="text-[#cc0000] font-mono text-[10px] tracking-[0.3em] mb-4 uppercase">System Error // Access Denied</p>
+        <p className="text-[#888] text-xs leading-relaxed max-w-sm font-mono">
+          VEIL Intelligence Terminal requires a high-resolution desktop interface for secure evidence mapping. 
+          <br /><br />
+          <span className="text-[#ff4040]">Mobile connections are automatically rejected.</span>
+        </p>
+        <div className="mt-8 flex gap-2">
+          <span className="w-1 h-1 bg-[#cc0000] animate-pulse"></span>
+          <span className="w-1 h-1 bg-[#cc0000] animate-pulse" style={{ animationDelay: "200ms" }}></span>
+          <span className="w-1 h-1 bg-[#cc0000] animate-pulse" style={{ animationDelay: "400ms" }}></span>
+        </div>
+      </div>
+
+      {/* Main Desktop Interface */}
+      <div className="hidden lg:block min-h-screen">
+        {screen === "init" && (
+          <InitializationScreen onSelect={handleInit} />
+        )}
+        {screen === "case-select" && (
+          <CaseSelectScreen cases={cases} onSelect={(id) => { setActiveCaseId(id); setScreen("investigation"); }} lang={lang} setLang={setLang} />
+        )}
+        {screen === "investigation" && activeCase && (
+          <Dashboard 
+            key={activeCase.id}
+            caseData={activeCase} 
+            onBack={() => setScreen("case-select")} 
+            lang={lang} 
+            setLang={setLang} 
+          />
+        )}
+      </div>
     </div>
   );
 }

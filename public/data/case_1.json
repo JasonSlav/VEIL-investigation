@@ -7,8 +7,8 @@
         "id": "Seorang asing menjanjikan keuntungan bulanan 40%. Tiga korban. Satu aksi menghilang." 
     },
     "description": { 
-        "en": "Suspected fraudulent investment scheme targeting university students. Multiple personal accounts detected. Estimated financial impact: Rp 150.000.000. Priority: HIGH.", 
-        "id": "Dugaan skema investasi bodong yang menargetkan mahasiswa. Terdeteksi banyak rekening pribadi. Perkiraan dampak finansial: Rp 150.000.000. Prioritas: TINGGI." 
+        "en": "Multiple reports of high-value unauthorized fund transfers involving a single point of contact. High financial impact detected. Objective: Identify perpetrator methodology and network.", 
+        "id": "Berbagai laporan transfer dana ilegal bernilai tinggi yang melibatkan satu titik kontak. Dampak finansial besar terdeteksi. Objektif: Identifikasi metodologi dan jaringan pelaku." 
     },
     "difficulty": "HIGH",
     "category": { "en": "INVESTMENT FRAUD", "id": "PENIPUAN INVESTASI" },
@@ -100,7 +100,7 @@
         }, 
         "status": "unread", "selected": false, 
         "category": { "en": "SOCIAL MEDIA", "id": "MEDIA SOSIAL" }, 
-        "timestamp": "08:12:00", "nodeId": "n1", "isInitial": true 
+        "timestamp": "08:12:00", "isInitial": true 
       },
       { 
         "id": "c9", "icon": "Globe", 
@@ -112,7 +112,7 @@
         }, 
         "status": "unread", "selected": false, 
         "category": { "en": "GENERAL INFO", "id": "INFO UMUM" }, 
-        "timestamp": "07:45:10", "nodeId": "n6", "isInitial": true 
+        "timestamp": "07:45:10", "isInitial": true 
       }
     ],
     "nodes": [

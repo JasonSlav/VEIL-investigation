@@ -7,8 +7,8 @@
         "id": "Pekerjaan impian di perusahaan Fortune 500. Surat penawarannya sempurna. Tapi perusahaan tidak pernah mengenalnya." 
     },
     "description": { 
-        "en": "Suspected fraudulent job offer targeting fresh graduates. Impersonation of legitimate tech corporation. Estimated financial impact: Rp 12.000.000. Priority: MEDIUM.", 
-        "id": "Dugaan penipuan tawaran pekerjaan yang menargetkan lulusan baru. Penyamaran sebagai korporasi teknologi resmi. Perkiraan dampak finansial: Rp 12.000.000. Prioritas: SEDANG." 
+        "en": "Abnormal recruitment correspondence impersonating corporate entities. Potential illegal extraction of operational fees detected. Objective: Deconstruct the communication chain.", 
+        "id": "Anomali korespondensi rekrutmen yang menyamar sebagai entitas korporat. Terdeteksi potensi pemerasan biaya operasional ilegal. Objektif: Bongkar rantai komunikasi." 
     },
     "difficulty": "MEDIUM",
     "category": { "en": "JOB SCAM", "id": "PENIPUAN LOWONGAN KERJA" },
@@ -76,7 +76,7 @@
         }, 
         "status": "unread", "selected": false, 
         "category": { "en": "DOCUMENTATION", "id": "DOKUMENTASI" }, 
-        "timestamp": "11:05:00", "nodeId": "n5", "isInitial": true 
+        "timestamp": "11:05:00", "isInitial": true 
       },
       { 
         "id": "c8", "icon": "User", 
@@ -88,7 +88,7 @@
         }, 
         "status": "unread", "selected": false, 
         "category": { "en": "GENERAL", "id": "UMUM" }, 
-        "timestamp": "11:20:00", "nodeId": "n2", "isInitial": true 
+        "timestamp": "11:20:00", "isInitial": true 
       }
     ],
     "nodes": [
@@ -160,7 +160,7 @@
         { "en": "Legitimate employers never require candidates to pay for equipment upfront", "id": "Pemberi kerja resmi tidak pernah meminta kandidat membayar peralatan di muka" },
         { "en": "Reverse-image-search any profile photo provided by an interviewer", "id": "Lakukan pencarian gambar terbalik pada foto profil yang disediakan oleh pewawancara" },
         { "en": "Inspect email domains character-by-character against the official website", "id": "Periksa domain email karakter demi karakter terhadap situs web resmi" },
-        { "en": "Report suspected recruitment scams to MCMC at aduan.mcmc.gov.my", "id": "Laporkan dugaan penipuan rekrutmen ke MCMC di aduan.mcmc.gov.my" }
+        { "en": "Report suspected recruitment scams to MCMC via their official complaint portal", "id": "Laporkan dugaan penipuan rekrutmen ke MCMC melalui portal pengaduan resmi" }
       ]
     },
     "oracleHints": {
